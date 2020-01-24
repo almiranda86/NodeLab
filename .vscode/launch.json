@@ -7,12 +7,22 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "JavaScriptFundamentals",
+            "name": "Fundamentals",
             "skipFiles": [
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\Fundamentals\\src\\index.js",
             "outFiles": ["${workspaceFolder}/Fundamentals/.compiled/**/*.js"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "WebApi",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\WebApi\\src\\server.js",
+            "outFiles": ["${workspaceFolder}/WebApi/.compiled/**/*.js"]
         }
     ]
 }
