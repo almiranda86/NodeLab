@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS Functions</title>
+    <script type="text/javascript" src="index.js" ></script>
+</head>
+
+<body>
+    <h3>Fundamentals</h3>
+    <br />
+    <div>
+        <p>
+            Here, the ideia is show a bit of the fundamentals in the Node.js
+        </p>
+        <p>
+            Here we have the classic Hello World output, from a Node.js script.
+            <br>
+            Event though this is an Hello World, we did this with modules.
+            <br>
+            What I mean by that?
+            <br>
+            Well, we have a <i>Class</i>, that is exported to our main js file, here named as <i>index.js</i>.
+            <br>
+            Inside this class, we have a simple method, that write in the console the message we want.
+            <br>
+            In our main .js file, we are importing that class, initializing it and calling it's method, to print the message.
+        </p>
+        <p>
+            <h4>The Hello World class</h4>
+            <code>
+                <br>
+                export class HelloWorld {
+                    <br>
+                    sayHello() {
+                        <br>
+                        console.log("Hello world");
+                        <br>
+                    }
+                    <br>
+                }
+            </code>
+            <br>
+            <h4>The index.js</h4>
+            <code>
+                import { HelloWorld } from './helloWorld';
+                <br>
+                new HelloWorld().sayHello();
+                <br>
+                > Hello world
+            </code>
+        </p>
+    </div>
+    <div>
+        <p>
+            In this another example, we're calling an external api and working with Promises to retrieve it's return.
+            <br>
+            As for the previous example, we still did this with modules. So we have another class, that is exported.
+            <br>
+            The diference here, is that the module here, is a <i>Promise</i>.
+            <br>
+            A <i>Promise</i> is an object that represents the result an asyncronous call, with its success or failure.
+            <br>
+            So in this example, we call the api, and expect it to complet it's return to give back to the caller the results.
+        </p>
+        <p>
+            <h4>The Api Class</h4>
+            <code>
+                import { Request } from 'request-promise-native';
+                <br>
+                export class ApiClient {
+                    <br>
+                    getTasks() {
+                        <br>
+                        return new Promise((resolve, reject) => {
+                            <br>
+                            var options = {
+                                <br>
+                                method: "GET",
+                                <br>
+                                uri: "https://jsonplaceholder.typicode.com/todos/",
+                                <br>
+                                json: true
+                                <br>
+                            };
+                            <br>
+                
+                            new Request(options) 
+                            <br>
+                                .then(response => {
+                                    <br>
+                                    resolve(response);
+                                    <br>
+                                })
+                                <br>
+                                .catch(err => {
+                                    <br>
+                                    reject(err);
+                                    <br>
+                                });
+                                <br>
+                        });
+                        <br>
+                    }
+                    <br>
+                }
+            </code>
+            <br>
+            <h4>The index.js</h4>
+            <code>
+                import { ApiClient } from './apiClient';
+                <br>
+                var apiClient = new ApiClient();
+                <br>
+                apiClient.getTasks()
+                <br>
+                .then(data => {
+                    <br>
+                    console.log(`I got back ${data.length} rows`);
+                    <br>
+                })
+                <br>
+                .catch(err => {
+                    <br>
+                    console.log(`Something went horribly wrong: ${err}`);
+                    <br>
+                })
+                <br>
+                > I got back 200 rows
+            </code>
+        </p>
+    </div>
+</body>
+
+</html>
