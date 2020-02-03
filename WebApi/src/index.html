@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mimickin Asp.Net Core WebApi</title>
+    
+</head>
+
+<body>
+    <h3>Mimickin Asp.Net Core WebApi</h3>
+    <br />
+    <div>
+        <p>
+            Here, the ideia is show how we could bring the ideia of an Asp.Net WebApi lookalike, inside the Node.js
+        </p>
+        <p>
+            The firt step for this, was import the Express inside our project, so this way we're able to set a simple server running in our localhost.
+        </p>
+        <p>
+            The next steps, you may guessing, could be, how to solve DI, how to solve the Controllers.
+            <br>
+            Well, we'll gonna try to show how this could be setting up, in a simple way.
+        </p> 
+        <p>
+            The first thing to do, is define our structure here, once Node.js dosen't have this concepts, and as Sap said, you could leave this way, or create this foundations, if it'll let you more confortable as an Asp.Net Core dev.
+        </p>
+        <p>
+            To create this structure, in basis we'll need something like:
+            <br><br>
+            <strong>Config</strong>
+            <br>
+            <label>
+                this will define the configurations of our app, and act as out Containner, as for example, the port where the project will run, or maybe the Service life time cycle.
+            </label>
+            <br><br>
+            <strong>Server</strong>
+            <br>
+            <label>
+                in this file, we'll redefine our Server, in order to use our defined configurations, routers and properly runs the application.
+            </label>
+            <br><br>
+            <strong>UsersRouter</strong>
+            <br>
+            <label>
+                here, we'll produca a controller lookalike. In here it'll be defined the methods that could be called from the browser url.
+            </label>
+            <br><br>
+            <strong>UserService</strong>
+            <br>
+            <label>
+                here, it's the place where we could make our calls to a database or a third-part api, to provide us the results needed.
+            </label>
+        </p> 
+        <p>
+            In this example, when we start the project, we'll gonna receive a message saying that the server is listening in the defined port for all the requests that could came across the browser or other apis.
+            <br>
+            Here, our expected answer is this message:
+            <br>
+            >Listening on port 3000
+            <br>
+            And, when we hit the defined url, /api/users, in our localhost, http://localhost:3000/api/users, we'll receive the result we setted up
+            <br>
+            >[{"userId":100},{"userId":101}]
+        </p>         
+    </div>
+</body>
+
+</html>

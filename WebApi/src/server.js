@@ -1,6 +1,12 @@
-const express = require('express');
-var app = express();
+import { Config } from './config/config';
+import { Server } from './servers/server';
+import { UsersRouter } from './routers/usersRouter'
+import { UserService } from './services/userService';
 
-app.get("/", (req, res) => res.send("Hello World"));
+var config = new Config()
+    .setPort(3000)
+    .addTransient("UserService", UserService);
 
-app.listen(3000, () => console.log("Running on port 3000"));
+new Server(config)
+    .addRouter("/api/users", new UsersRouter(config))
+    .start();
