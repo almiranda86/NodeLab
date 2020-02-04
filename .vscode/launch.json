@@ -23,6 +23,16 @@
             ],
             "program": "${workspaceFolder}\\WebApi\\src\\server.js",
             "outFiles": ["${workspaceFolder}/WebApi/.compiled/**/*.js"]
-        }
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "UnitTest",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\UnitTest\\src\\server.js",
+            "outFiles": ["${workspaceFolder}/UnitTest/.compiled/**/*.js"]
+        }        
     ]
 }
