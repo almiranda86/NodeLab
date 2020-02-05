@@ -4,3 +4,5 @@ WebApi/node_modules
 WebApi/.compiled
 UnitTest/node_modules
 UnitTest/.compiled
+ContinuousIntegration/node_modules
+ContinuousIntegration/.compiled
