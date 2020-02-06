@@ -1,0 +1,28 @@
+{
+  "name": "nodelab",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.js",
+  "scripts": {
+    "compile": "./node_modules/.bin/babel src --out-dir .compiled --source-maps --watch",
+    "dev": "./node_modules/.bin/nodemon --exec ./node_modules/.bin/babel-node ./src/index.js",
+    "build": "./node_modules/.bin/babel-node ./src/index.js",
+    "start": "npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/runtime": "^7.8.4",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-debug": "^4.0.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
